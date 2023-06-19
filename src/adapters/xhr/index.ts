@@ -1,6 +1,5 @@
 import Axios from "axios";
 
-const url = ""
 
 const initializers = {}
 

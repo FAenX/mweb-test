@@ -1,9 +1,9 @@
 import {get,}  from './xhr'
-import {getAllCompanies}  from './home'
+import {getCampaigns}  from './home'
 
 
 
 export {
     get,
-    getAllCompanies,
+    getCampaigns,
 }

@@ -1,10 +1,14 @@
-import React from "react";
+import ComponentHost from './componentHost'
+import {CampaignsProvider} from '../../contexts/home'
 
 
-export const Component = () => {
+
+export function Component (){
+    
+
     return (
-        <div>
-            <h1>Component</h1>
-        </div>
+        <CampaignsProvider >
+            <ComponentHost />
+        </CampaignsProvider >
     );
-}
+};
