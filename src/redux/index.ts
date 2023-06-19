@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import campaignsReducer from './home'
+import campaignsReducer from './campaigns'
+import providersReducer from './providers'
 
 export const store = configureStore({
     reducer: {
         campaigns: campaignsReducer,
+        providers: providersReducer
     },
 })
 

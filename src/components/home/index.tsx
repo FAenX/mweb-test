@@ -1,5 +1,5 @@
 import ComponentHost from './componentHost'
-import {CampaignsProvider} from '../../contexts/home'
+import {CampaignsProvider, ProvidersProvider} from '../../contexts/home'
 
 
 
@@ -8,7 +8,9 @@ export function Component (){
 
     return (
         <CampaignsProvider >
-            <ComponentHost />
+            <ProvidersProvider>
+                <ComponentHost />
+            </ProvidersProvider>
         </CampaignsProvider >
     );
 };

@@ -1,4 +1,4 @@
-import { Campaigns } from "./components";
+import { Campaigns, Providers  } from "./components";
 import Container from '@mui/material/Container';
 import { Stack, Typography } from "@mui/material";
 
@@ -16,6 +16,9 @@ export default function ComponentHost  ()  {
             </Stack>
 
         <Typography variant={'h6'}>Fibre Providers</Typography>
+        <Stack direction={'row'} flexWrap={'wrap'}>
+                <Providers />
+            </Stack>
         
         <Typography variant={'h6'}>Price Ranges</Typography>
        

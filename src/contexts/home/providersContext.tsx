@@ -2,9 +2,10 @@ import React, {} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../../redux'
-import { Campaign } from '../../types/home';
-import { getCampaigns } from '../../adapters';
-import { setCampaigns } from '../../redux/home';
+import { Provider } from '../../types/home';
+import { getProviders } from '../../adapters';
+import { setProviders } from '../../redux/providers';
+
 
 
 
@@ -15,37 +16,37 @@ type ProviderProps = {
     children: React.ReactNode;
 };
 
-type Campaigns = {
-    campaigns: Campaign[] | [];
-    setCampaigns: (campaigns: Campaign[]) => void;
+type Providers = {
+    providers: Provider[] | [];
+    setProviders: (providers: Provider[]) => void;
 };
 
 
-export const CampaignsContext = React.createContext<Campaigns>({
-    campaigns: [],
-    setCampaigns: () => {}
+export const ProvidersContext = React.createContext<Providers>({
+    providers: [],
+    setProviders: () => {}
 });
 
-export const CampaignsProvider: React.FC<ProviderProps> = ({children}) => {
+export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
 
     const dispatch = useDispatch();
-    const handleSetCampaigns =(campaigns: Campaign[])=> {
-        dispatch(setCampaigns(campaigns));
+    const handleSetProviders =(providers: Provider[])=> {
+        dispatch(setProviders(providers));
     }
     
 
-    const campaigns = useSelector((state: RootState) => state.campaigns.campaigns);
+    const providers = useSelector((state: RootState) => state.providers.providers);
 
     React.useEffect(() => {
         
             (async()=> {
-                const data = await getCampaigns();
-                console.log(data.data.campaigns)
+                const data = await getProviders([]);
+                console.log(data)
                 if (data.error) {
                     // setNotification({message: data.message, severity: 'error'})
                     return
                 }
-                handleSetCampaigns(data.data.campaigns);
+                handleSetProviders(data.data.providers);
               
             }
             )();
@@ -56,13 +57,13 @@ export const CampaignsProvider: React.FC<ProviderProps> = ({children}) => {
 
 
     return (
-        <CampaignsContext.Provider 
+        <ProvidersContext.Provider 
             value={{
-                campaigns: campaigns, 
-                setCampaigns:  handleSetCampaigns
+                providers: providers, 
+                setProviders:  handleSetProviders
             }}>
             {children}
-        </CampaignsContext.Provider>
+        </ProvidersContext.Provider>
     )
 }
 

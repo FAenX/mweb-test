@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux'
 import { Campaign } from '../../types/home';
 import { getCampaigns } from '../../adapters';
-import { setCampaigns, selectCampaign } from '../../redux/home';
+import { setCampaigns, selectCampaign } from '../../redux/campaigns';
 
 
 
