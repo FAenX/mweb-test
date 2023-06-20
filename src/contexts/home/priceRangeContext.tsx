@@ -1,70 +1,46 @@
-// import React, {} from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-
-// import { RootState } from '../../redux'
-// import { Campaign } from '../../types/home';
-// import { getCampaigns } from '../../adapters';
-// import { setCampaigns } from '../../redux/campaigns';
+import React, {} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux';
+import { selectPriceRange } from '../../redux/home/priceRange';
 
 
 
 
+type PriceRangeProps = {
+    children: React.ReactNode;
+};
 
-  
-// type ProviderProps = {
-//     children: React.ReactNode;
-// };
-
-// type Campaigns = {
-//     campaigns: Campaign[] | [];
-//     setCampaigns: (campaigns: Campaign[]) => void;
-// };
+type PriceRange = {
+    priceRange: string;
+    setPriceRange: (range: string) => void;
+};
 
 
-// export const CampaignsContext = React.createContext<Campaigns>({
-//     campaigns: [],
-//     setCampaigns: () => {}
-// });
+export const PriceRangeContext = React.createContext<PriceRange>({
+    priceRange: '',
+    setPriceRange: () => {}
+});
 
-// export const CampaignsProvider: React.FC<ProviderProps> = ({children}) => {
+export const PriceRangeProvider: React.FC<PriceRangeProps> = ({children}) => {
 
-//     const dispatch = useDispatch();
-//     const handleSetCampaigns =(campaigns: Campaign[])=> {
-//         dispatch(setCampaigns(campaigns));
-//     }
+    const dispatch = useDispatch();
+    const handleSetPriceRange =(range: string)=> {
+        dispatch(selectPriceRange(range));
+    }
     
 
-//     const campaigns = useSelector((state: RootState) => state.campaigns.campaigns);
+    const priceRange = useSelector((state: RootState) => state.priceRange.selectedPriceRange);
 
-//     React.useEffect(() => {
-        
-//             (async()=> {
-//                 const data = await getCampaigns();
-//                 console.log(data.data.campaigns)
-//                 if (data.error) {
-//                     // setNotification({message: data.message, severity: 'error'})
-//                     return
-//                 }
-//                 handleSetCampaigns(data.data.campaigns);
-              
-//             }
-//             )();
-
-        
-      
-//     }, []);
+    return (
+        <PriceRangeContext.Provider 
+            value={{
+                priceRange: priceRange, 
+                setPriceRange: handleSetPriceRange
+            }}>
+            {children}
+        </PriceRangeContext.Provider>
+    )
+}
 
 
-//     return (
-//         <CampaignsContext.Provider 
-//             value={{
-//                 campaigns: campaigns, 
-//                 setCampaigns:  handleSetCampaigns
-//             }}>
-//             {children}
-//         </CampaignsContext.Provider>
-//     )
-// }
-
-export {}
 

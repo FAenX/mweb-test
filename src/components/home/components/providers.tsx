@@ -1,14 +1,23 @@
 import { useContext } from "react";
 import { CampaignsContext, ProvidersContext } from "../../../contexts/home";
-import { Box } from "@mui/system";
-import { Checkbox, FormControlLabel, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/system";
+import { Avatar, Checkbox, FormControlLabel, Typography } from "@mui/material";
+
+
+const LOGOBASEURLFRAG = "https://www.mweb.co.za/media/images/providers/provider"
+
+export function getLogoUrl(provider: string): string {
+    const formatedProvider = provider.toLowerCase().replace(/\s/g, "-");
+    const url = `${LOGOBASEURLFRAG}-${formatedProvider}.png`;
+    return url;
+  }
 
 
 export default function Component() {
     const {providers, selectProvider, selectedProvider} = useContext(ProvidersContext);
     return (
         <Box sx={{ minWidth: 275 }} margin={'10px'}>
-            <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap', border: "1px solid black"}}>
+            <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap'}}>
                 {providers && providers.map((provider, index) => {
                     return (
                         <FormControlLabel 
@@ -21,9 +30,18 @@ export default function Component() {
                                 sx={{color: 'primary.main'}}
                             />} 
                             label={
-                            <Typography variant={'h6'}>
-                                {provider.provider}
-                            </Typography>
+                                <Stack direction={'row'} justifyContent={'center'} spacing={1} alignContent={'center'} alignItems={'center'} >
+                                    <Avatar 
+                                        src={getLogoUrl(provider.provider)} 
+                                        sx={{width: '20px', height: '20px', bgcolor: 'white'}}
+                                        alt={provider.provider}
+                                        variant={'square'}
+                                    />
+
+                                    <Typography variant={'h6'}>
+                                        {provider.provider}
+                                    </Typography>
+                                </Stack>
                             } 
                         />
                     )

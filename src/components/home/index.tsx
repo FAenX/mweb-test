@@ -1,5 +1,5 @@
 import ComponentHost from './componentHost'
-import {CampaignsProvider, ProvidersProvider, ProductsProvider} from '../../contexts/home'
+import {CampaignsProvider, ProvidersProvider, ProductsProvider, PriceRangeProvider} from '../../contexts/home'
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material';
 
 
@@ -28,7 +28,9 @@ export function Component (){
             <CampaignsProvider >
                 <ProvidersProvider>
                     <ProductsProvider>
-                        <ComponentHost />
+                        <PriceRangeProvider>
+                            <ComponentHost />
+                        </PriceRangeProvider>
                     </ProductsProvider>
                 </ProvidersProvider>
             </CampaignsProvider >

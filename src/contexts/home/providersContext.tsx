@@ -1,10 +1,11 @@
 import React, {} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from '../../redux'
 import { Provider } from '../../types/home';
 import { getProviders } from '../../adapters';
-import { selectProvider, setProviders } from '../../redux/providers';
+import { selectProvider, setProviders } from '../../redux/home/providers';
+import { RootState } from '../../redux';
+
 
 
 

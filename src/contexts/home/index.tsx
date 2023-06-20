@@ -1,6 +1,7 @@
 import { CampaignsProvider, CampaignsContext } from "./campaignContext"
 import { ProvidersProvider, ProvidersContext } from "./providersContext"
 import { ProductsProvider, ProductsContext } from "./productsContext"
+import { PriceRangeProvider, PriceRangeContext } from "./priceRangeContext"
 
 export {
     CampaignsProvider,
@@ -8,5 +9,7 @@ export {
     ProvidersContext,
     ProvidersProvider,
     ProductsContext,
-    ProductsProvider
+    ProductsProvider,
+    PriceRangeContext,
+    PriceRangeProvider
 }

@@ -72,12 +72,14 @@ interface Product {
      * @param {string} chargePeriod
      * @param {string} displayPrice
      * @param {string} productName
+     * @param {number} productRate
      * 
      * */
     category: string
     chargePeriod: string
     displayPrice: string
     productName: string
+    productRate: number
     
 
 }
