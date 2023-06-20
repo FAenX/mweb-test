@@ -25,7 +25,7 @@ export default function Campaigns() {
                                 sx={{color: 'primary.main'}}
                             />} 
                             label={
-                            <Typography variant={'h6'}>
+                            <Typography variant={'h6'} sx={{fontWeight: "300"}}>
                                 {campaign.name}
                             </Typography>
                             } 

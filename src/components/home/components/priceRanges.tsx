@@ -23,7 +23,7 @@ export default function Component(){
                     sx={{color: 'primary.main'}}
                 />}
                 label={
-                <Typography variant={'h6'}>R0 - R699</Typography>
+                <Typography variant={'h6'} sx={{fontWeight: "300"}}>R0 - R699</Typography>
                 }
             />
             </Stack >
@@ -37,7 +37,7 @@ export default function Component(){
                     sx={{color: 'primary.main'}}
                 />}
                 label={
-                <Typography variant={'h6'}>R700 - R999</Typography>
+                <Typography variant={'h6'} sx={{fontWeight: "300"}}>R700 - R999</Typography>
                 }
             />
             </Stack >
@@ -51,7 +51,7 @@ export default function Component(){
                     sx={{color: 'primary.main'}}
                 />}
                 label={
-                <Typography variant={'h6'}>R1000+</Typography>
+                <Typography variant={'h6'} sx={{fontWeight: "300"}}>R1000+</Typography>
                 }
             />
             </Stack > </>) || <RowPlaceHolder />}

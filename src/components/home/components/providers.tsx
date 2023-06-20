@@ -36,12 +36,12 @@ export default function Component() {
                                 <Stack direction={'row'} justifyContent={'center'} spacing={1} alignContent={'center'} alignItems={'center'} >
                                     <Avatar 
                                         src={getLogoUrl(provider)} 
-                                        sx={{width: '24px', height: '24px', bgcolor: 'white', padding: "2px"}}
-                                        alt="P"
+                                        sx={{width: '50px', height: '24px', padding: "2px"}}
+                                        alt={provider}
                                         variant={'square'}
                                     />
 
-                                    <Typography variant={'h6'}>
+                                    <Typography variant={'h6'} sx={{fontWeight: "300"}}>
                                         {provider}
                                     </Typography>
                                 </Stack>

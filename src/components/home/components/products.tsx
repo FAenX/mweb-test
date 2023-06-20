@@ -15,7 +15,7 @@ export default function Component(){
                     return (
                         <ul key={index}>
                             <li>
-                                <Typography variant={'h6'}>{product.productName}</Typography>
+                                <Typography variant={'h6'} sx={{fontWeight: "300"}}>{product.productName}</Typography>
                             </li>
                         </ul>
                     )
