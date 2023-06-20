@@ -48,9 +48,7 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
 
         console.log(priceRange)
             
-        if (priceRange && priceRange.length < 1){
-            handleSetProducts(products && products || []);
-        }
+        
 
         if (priceRange && priceRange === "R0 - R699"){
             const fByRange = products && products.filter(product=>{
@@ -59,18 +57,21 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
             handleSetProducts(fByRange && fByRange || []);
         }
 
-        if (priceRange && priceRange === "R700 - R999"){
+        else if (priceRange && priceRange === "R700 - R999"){
             const fByRange = products && products.filter(product=>{
                 return product.productRate <= 999
             })
             handleSetProducts(fByRange && fByRange || []);
         }
 
-        if (priceRange && priceRange === "R1000+"){
+        else if (priceRange && priceRange === "R1000+"){
             const fByRange = products && products.filter(product=>{
                 return product.productRate >= 1000
             })
             handleSetProducts(fByRange && fByRange || []);
+        }
+        else {
+            handleSetProducts(products && products || []);
         }
 
         

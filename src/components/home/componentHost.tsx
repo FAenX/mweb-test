@@ -8,7 +8,7 @@ import { Stack, Typography } from "@mui/material";
 export default function ComponentHost  ()  {
     
     return (
-        <Container sx={{minWidth: '90vw', padding: '15px', border: "1px solid black"}} >
+        <Container sx={{minWidth: '90vw', padding: '15px'}} >
             <Typography variant={'h6'} sx={{fontWeight: "bold"}}>Select Fibre Campaign</Typography>
             
             <Stack direction={'row'} flexWrap={'wrap'} sx={{margin: "20px"}}>
