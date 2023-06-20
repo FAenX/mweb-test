@@ -20,24 +20,24 @@ export default function ComponentHost  ()  {
             </AppBar>
 
 
-            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Select Fibre Campaign</Typography>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "20px"}}>Select Fibre Campaign</Typography>
             
             <Stack direction={'row'} flexWrap={'wrap'} >
                 <Campaigns />
             </Stack>
 
-            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Fibre Providers</Typography>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "20px"}}>Fibre Providers</Typography>
             <Stack direction={'row'} flexWrap={'wrap'} >
                     <Providers />
                 </Stack>
             
-            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Price Ranges</Typography>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "20px"}}>Price Ranges</Typography>
                 <Stack direction={'row'} flexWrap={'wrap'} >
                     <PriceRanges />
                 </Stack>
         
 
-            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Products</Typography>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "20px"}}>Products</Typography>
                 <Stack direction={'row'} flexWrap={'wrap'} >
                     <Products />
                 </Stack>

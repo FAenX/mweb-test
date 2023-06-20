@@ -20,7 +20,7 @@ export default function Component() {
     return (
         <Box sx={{ minWidth: 275 }} >
             
-            {(providers && providers.length > 0 && <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap'}}>
+            {(providers && providers.length > 0 && <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap', margin: "5px"}}>
                 {unq && unq.length > 0 && unq.map((provider, index) => {
                     return (
                         <FormControlLabel 
