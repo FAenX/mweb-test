@@ -9,7 +9,7 @@ import {ColumnPlaceHolder} from './common/placeHolders'
 export default function Component(){
     const {products} = useContext(ProductsContext);
     return (
-        <Box margin={'10px'} sx={{minWidth: 275, display: 'flex', justifyContent: '', flexDirection: 'column'}}>
+        <Box sx={{minWidth: 275, display: 'flex', flexDirection: 'column'}}>
             {(products && products.length > 0 && <Box sx={{padding: '5px'}}>
                 {products && products.map((product, index) => {
                     return (

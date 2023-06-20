@@ -20,25 +20,25 @@ export default function ComponentHost  ()  {
             </AppBar>
 
 
-            <Typography variant={'h6'} sx={{fontWeight: "bold"}}>Select Fibre Campaign</Typography>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Select Fibre Campaign</Typography>
             
-            <Stack direction={'row'} flexWrap={'wrap'} sx={{margin: "20px"}}>
+            <Stack direction={'row'} flexWrap={'wrap'} >
                 <Campaigns />
             </Stack>
 
-            <Typography variant={'h6'} sx={{fontWeight: "bold"}}>Fibre Providers</Typography>
-            <Stack direction={'row'} flexWrap={'wrap'} sx={{margin: "20px"}}>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Fibre Providers</Typography>
+            <Stack direction={'row'} flexWrap={'wrap'} >
                     <Providers />
                 </Stack>
             
-            <Typography variant={'h6'} sx={{fontWeight: "bold"}}>Price Ranges</Typography>
-                <Stack direction={'row'} flexWrap={'wrap'} sx={{margin: "20px"}}>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Price Ranges</Typography>
+                <Stack direction={'row'} flexWrap={'wrap'} >
                     <PriceRanges />
                 </Stack>
         
 
-            <Typography variant={'h6'} sx={{fontWeight: "bold"}}>Products</Typography>
-                <Stack direction={'row'} flexWrap={'wrap'} sx={{margin: "20px"}}>
+            <Typography variant={'h6'} sx={{fontWeight: "bold", margin: "10px"}}>Products</Typography>
+                <Stack direction={'row'} flexWrap={'wrap'} >
                     <Products />
                 </Stack>
                 

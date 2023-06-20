@@ -12,7 +12,7 @@ export default function Campaigns() {
     const {campaigns, selectCampaign, selectedCampaign} = useContext(CampaignsContext);
     return (
         <Box sx={{ minWidth: 275 }} margin={'5px'}>
-            {(campaigns.length > 0 && <Box sx={{display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap'}}>
+            {(campaigns.length > 0 && <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
                 {campaigns.map((campaign, index) => {
                     return (
                         <FormControlLabel 

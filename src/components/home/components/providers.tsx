@@ -18,7 +18,7 @@ export default function Component() {
     const {providers, selectProvider, selectedProvider} = useContext(ProvidersContext);
     const unq = providers && providers.length > 0 && Array.from(new Set(providers.map(provider=>provider.provider)))
     return (
-        <Box sx={{ minWidth: 275 }} margin={'10px'}>
+        <Box sx={{ minWidth: 275 }} >
             
             {(providers && providers.length > 0 && <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap'}}>
                 {unq && unq.length > 0 && unq.map((provider, index) => {
