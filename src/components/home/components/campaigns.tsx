@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import { Checkbox, FormControlLabel } from '@mui/material';
 import { useContext } from 'react';
 import { CampaignsContext } from '../../../contexts/home';
+import {RowPlaceHolder} from './common/placeHolders'
 
 
 
@@ -11,7 +12,7 @@ export default function Campaigns() {
     const {campaigns, selectCampaign, selectedCampaign} = useContext(CampaignsContext);
     return (
         <Box sx={{ minWidth: 275 }} margin={'5px'}>
-            <Box sx={{display: 'flex', justifyContent: 'flex-end'}}>
+            {(campaigns.length > 0 && <Box sx={{display: 'flex', justifyContent: 'flex-end'}}>
                 {campaigns.map((campaign, index) => {
                     return (
                         <FormControlLabel 
@@ -31,7 +32,7 @@ export default function Campaigns() {
                         />
                     )
                 })} 
-            </Box>
+            </Box>) || <RowPlaceHolder/>}
         </Box>
     );
 }

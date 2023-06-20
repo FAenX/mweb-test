@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { ProvidersContext } from "../../../contexts/home";
 import { Box, Stack } from "@mui/system";
-import { Avatar, Checkbox, FormControlLabel, Typography } from "@mui/material";
+import { Avatar, Checkbox, FormControlLabel, Skeleton, Typography } from "@mui/material";
+import {RowPlaceHolder} from './common/placeHolders'
 
 
 const LOGOBASEURLFRAG = "https://www.mweb.co.za/media/images/providers/provider"
@@ -17,7 +18,7 @@ export default function Component() {
     const {providers, selectProvider, selectedProvider} = useContext(ProvidersContext);
     return (
         <Box sx={{ minWidth: 275 }} margin={'10px'}>
-            <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap'}}>
+            {(providers && <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap'}}>
                 {providers && providers.map((provider, index) => {
                     return (
                         <FormControlLabel 
@@ -46,7 +47,7 @@ export default function Component() {
                         />
                     )
                 })}
-            </Box>
+            </Box>) || <RowPlaceHolder/>} 
         </Box>
     );
 }

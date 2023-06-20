@@ -22,9 +22,9 @@ export function Component (){
     
 
     return (
-        <ThemeProvider
-            theme={theme}
-        >
+        // <ThemeProvider
+        //     theme={theme}
+        // >
             <CampaignsProvider >
                 <ProvidersProvider>
                     <ProductsProvider>
@@ -34,7 +34,7 @@ export function Component (){
                     </ProductsProvider>
                 </ProvidersProvider>
             </CampaignsProvider >
-        </ThemeProvider>
+        // </ThemeProvider>
 
     );
 };

@@ -9,7 +9,7 @@ export default function Component(){
     const {priceRange, setPriceRange} = useContext(PriceRangeContext);
     return (
         <Box sx={{display: "flex", flexDirection: "row"}}>
-            <Stack sx={{border: "1px solid black", margin: '5px', padding: '5px'}}>
+            <Stack sx={{margin: '5px', padding: '5px'}}>
             <FormControlLabel 
                 id='R0 - R699'
                 control={<Checkbox  
@@ -23,7 +23,7 @@ export default function Component(){
                 }
             />
             </Stack >
-            <Stack  sx={{border: "1px solid black", margin: '5px', padding: '5px'}}>
+            <Stack  sx={{ margin: '5px', padding: '5px'}}>
             <FormControlLabel 
                 id='R700 - R999'
                 control={<Checkbox  
@@ -37,7 +37,7 @@ export default function Component(){
                 }
             />
             </Stack >
-            <Stack  sx={{border: "1px solid black", margin: '5px', padding: '5px'}}>
+            <Stack  sx={{ margin: '5px', padding: '5px'}}>
             <FormControlLabel 
                 id='R1000+'
                 control={<Checkbox  
