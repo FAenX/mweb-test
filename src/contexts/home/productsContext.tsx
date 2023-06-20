@@ -64,11 +64,7 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
         }
         else {
             handleSetProducts((products && products) || []);
-        }
-
-        
-
-           
+        }    
         
     }, [selectedProvider, priceRange]);
 
