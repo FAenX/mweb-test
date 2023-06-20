@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductsContext } from "../../../contexts/home";
 import { Box } from "@mui/system";
-import { List, ListItem, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 
 

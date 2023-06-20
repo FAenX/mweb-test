@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CampaignsContext, ProvidersContext } from "../../../contexts/home";
+import { ProvidersContext } from "../../../contexts/home";
 import { Box, Stack } from "@mui/system";
 import { Avatar, Checkbox, FormControlLabel, Typography } from "@mui/material";
 

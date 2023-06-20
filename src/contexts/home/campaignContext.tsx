@@ -58,7 +58,7 @@ export const CampaignsProvider: React.FC<ProviderProps> = ({children}) => {
             
         }
         )();
-    }, []);
+    });
 
 
     return (

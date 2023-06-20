@@ -6,12 +6,6 @@ import { setProducts } from '../../redux/home/products';
 import { RootState } from '../../redux';
 
 
-
-
-
-
-
-  
 type ProductProps = {
     children: React.ReactNode;
 };
@@ -54,24 +48,24 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
             const fByRange = products && products.filter(product=>{
                 return product.productRate <= 699
             })
-            handleSetProducts(fByRange && fByRange || []);
+            handleSetProducts((fByRange && fByRange) || []);
         }
 
         else if (priceRange && priceRange === "R700 - R999"){
             const fByRange = products && products.filter(product=>{
                 return product.productRate <= 999
             })
-            handleSetProducts(fByRange && fByRange || []);
+            handleSetProducts((fByRange && fByRange) || []);
         }
 
         else if (priceRange && priceRange === "R1000+"){
             const fByRange = products && products.filter(product=>{
                 return product.productRate >= 1000
             })
-            handleSetProducts(fByRange && fByRange || []);
+            handleSetProducts((fByRange && fByRange) || []);
         }
         else {
-            handleSetProducts(products && products || []);
+            handleSetProducts((products && products) || []);
         }
 
         

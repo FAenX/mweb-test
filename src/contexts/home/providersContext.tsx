@@ -52,7 +52,7 @@ export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
     React.useEffect(() => {
         (async()=> {
             const promocodes = campaigns && campaigns.length > 0 && campaigns
-                .filter(campaign=>campaign.code==selectedCampaign)[0]
+                .filter(campaign=>campaign.code===selectedCampaign)[0]
                 .promocodes
             
             
