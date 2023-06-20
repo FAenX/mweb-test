@@ -26,10 +26,33 @@ interface Campaign {
 
 interface Provider {
     /**
-     * @param {string} name
+     * @param {string} coverageStatusDisplayValue
+     * @param {string} coverageStatusOptionKey
+     * @param {Array<string>} products
+     * @param {string} promoCode
+     * @param {string} promoCodeCategory
+     * @param {string} promoCodeDescription
+     * @param {string} promoCodeSubcategory
+     * @param {string} promoCodeTagLine
+     * @param {string} promoProductDescription
+     * @param {string} promoProductTagline
+     * @param {string} promoUrlSlug
+     * @param {string} provider
      * 
      * */
-    name: string
+    coverageStatusDisplayValue: string
+    coverageStatusOptionKey: string
+    products: Array<string>
+    promoCode: string
+    promoCodeCategory: string
+    promoCodeDescription: string
+    promoCodeSubcategory: string
+    promoCodeTagLine: string
+    promoProductDescription: string
+    promoProductTagline: string
+    promoUrlSlug: string
+    provider: string
+    
 }
 
 

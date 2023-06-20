@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux'
 import { Provider } from '../../types/home';
 import { getProviders } from '../../adapters';
-import { setProviders } from '../../redux/providers';
+import { selectProvider, setProviders } from '../../redux/providers';
 
 
 
@@ -19,12 +19,16 @@ type ProviderProps = {
 type Providers = {
     providers: Provider[] | [];
     setProviders: (providers: Provider[]) => void;
+    selectProvider: (provider: string) => void;
+    selectedProvider: string
 };
 
 
 export const ProvidersContext = React.createContext<Providers>({
     providers: [],
-    setProviders: () => {}
+    setProviders: () => {},
+    selectProvider: ()=>{},
+    selectedProvider: ""
 });
 
 export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
@@ -33,34 +37,43 @@ export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
     const handleSetProviders =(providers: Provider[])=> {
         dispatch(setProviders(providers));
     }
+    const handleSelectProvider=(provider: string)=> {
+        dispatch(selectProvider(provider))
+    }
     
 
     const providers = useSelector((state: RootState) => state.providers.providers);
+    const selectedCampaign = useSelector((state: RootState)=>state.campaigns.selectedCampaign)
+    const campaigns = useSelector((state: RootState) => state.campaigns.campaigns);
+    const selectedProvider = useSelector((state: RootState)=> state.providers.selectedProvider)
+
 
     React.useEffect(() => {
-        
-            (async()=> {
-                const data = await getProviders([]);
-                console.log(data)
-                if (data.error) {
-                    // setNotification({message: data.message, severity: 'error'})
-                    return
-                }
-                handleSetProviders(data.data.providers);
-              
+        (async()=> {
+            const promocodes = campaigns
+                .filter(campaign=>campaign.code==selectedCampaign)[0]
+                .promocodes
+            
+            const data = await getProviders(promocodes);
+           
+            if (data.error) {
+                // setNotification({message: data.message, severity: 'error'})
+                return
             }
-            )();
-
-        
-      
-    }, []);
+            handleSetProviders(data.data);
+            
+        }
+        )();
+    }, [selectedCampaign]);
 
 
     return (
         <ProvidersContext.Provider 
             value={{
                 providers: providers, 
-                setProviders:  handleSetProviders
+                setProviders:  handleSetProviders,
+                selectProvider: handleSelectProvider,
+                selectedProvider: selectedProvider
             }}>
             {children}
         </ProvidersContext.Provider>
