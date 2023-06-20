@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProvidersContext } from "../../../contexts/home";
 import { Box, Stack } from "@mui/system";
-import { Avatar, Checkbox, FormControlLabel, Skeleton, Typography } from "@mui/material";
+import { Avatar, Checkbox, FormControlLabel, Typography } from "@mui/material";
 import {RowPlaceHolder} from './common/placeHolders'
 
 
