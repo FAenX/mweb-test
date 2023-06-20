@@ -6,6 +6,8 @@ import { Campaign } from '../../types/home';
 import { getCampaigns } from '../../adapters';
 import { selectCampaign, setCampaigns } from '../../redux/home/campaigns';
 import { RootState } from '../../redux';
+import { selectProvider } from '../../redux/home/providers';
+import { selectPriceRange } from '../../redux/home/priceRange';
 
 
 
@@ -36,10 +38,13 @@ export const CampaignsProvider: React.FC<ProviderProps> = ({children}) => {
 
     const dispatch = useDispatch();
     const handleSetCampaigns =(campaigns: Campaign[])=> {
+        
         dispatch(setCampaigns(campaigns));
     }
 
     const handleSelectCampaign=(code: string)=> {
+        dispatch(selectProvider(""))
+        dispatch(selectPriceRange(""))
         dispatch(selectCampaign(code))
     }
     

@@ -5,14 +5,9 @@ import { Provider } from '../../types/home';
 import { getProviders } from '../../adapters';
 import { selectProvider, setProviders } from '../../redux/home/providers';
 import { RootState } from '../../redux';
+import { selectPriceRange } from '../../redux/home/priceRange';
 
 
-
-
-
-
-
-  
 type ProviderProps = {
     children: React.ReactNode;
 };
@@ -39,6 +34,7 @@ export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
         dispatch(setProviders(providers));
     }
     const handleSelectProvider=(provider: string)=> {
+        dispatch(selectPriceRange(""))
         dispatch(selectProvider(provider))
     }
     
@@ -51,13 +47,15 @@ export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
 
     React.useEffect(() => {
         (async()=> {
-            const promocodes = campaigns && campaigns.length > 0 && campaigns
+            const promocodes = selectedCampaign && campaigns.length > 0 && campaigns
                 .filter(campaign=>campaign.code===selectedCampaign)[0]
                 .promocodes
             const data = promocodes && promocodes.length > 0 && await getProviders(promocodes);
             if (data.error) {
                 return
             }
+
+           
             handleSetProviders(data.data); 
         }
         )();

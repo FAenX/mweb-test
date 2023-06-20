@@ -36,7 +36,7 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
 
 
     React.useEffect(() => {
-        const products = providers && providers.length> 0 && providers
+        const products = selectedProvider && providers.length > 0 && providers
             .filter(provider=>provider.provider === selectedProvider)[0]
             .products
             

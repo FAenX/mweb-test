@@ -3,12 +3,12 @@ import { ProductsContext } from "../../../contexts/home";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import {ColumnPlaceHolder} from './common/placeHolders'
+import { Provider } from "../../../types/home";
 
 
 
 export default function Component(){
     const {products} = useContext(ProductsContext);
-    
     return (
         <Box margin={'10px'} sx={{minWidth: 275, display: 'flex', justifyContent: '', flexDirection: 'column'}}>
             {(products && products.length > 0 && <Box sx={{padding: '5px'}}>
