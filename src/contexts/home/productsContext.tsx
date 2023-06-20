@@ -58,7 +58,7 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
 
         else if (priceRange && priceRange === "R1000+"){
             const fByRange = products && products.filter(product=>{
-                return product.productRate <= 999 && product.productRate >= 1000
+                return product.productRate  >= 1000
             })
             handleSetProducts((fByRange && fByRange) || []);
         }
