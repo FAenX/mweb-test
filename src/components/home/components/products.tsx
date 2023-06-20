@@ -3,7 +3,6 @@ import { ProductsContext } from "../../../contexts/home";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import {ColumnPlaceHolder} from './common/placeHolders'
-import { Provider } from "../../../types/home";
 
 
 
