@@ -39,8 +39,6 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
         const products = providers && providers.length> 0 && providers
             .filter(provider=>provider.provider === selectedProvider)[0]
             .products
-
-        console.log(priceRange)
             
         
 
