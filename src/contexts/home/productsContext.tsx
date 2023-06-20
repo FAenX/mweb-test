@@ -36,7 +36,7 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
 
 
     React.useEffect(() => {
-        const products = selectedProvider && providers.length > 0 && providers
+        const products = selectedProvider &&providers.length > 0 && providers
             .filter(provider=>provider.provider === selectedProvider)[0]
             .products
             
@@ -51,14 +51,14 @@ export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
 
         else if (priceRange && priceRange === "R700 - R999"){
             const fByRange = products && products.filter(product=>{
-                return product.productRate <= 999
+                return product.productRate >=700 && product.productRate <= 999
             })
             handleSetProducts((fByRange && fByRange) || []);
         }
 
         else if (priceRange && priceRange === "R1000+"){
             const fByRange = products && products.filter(product=>{
-                return product.productRate >= 1000
+                return product.productRate <= 999 && product.productRate >= 1000
             })
             handleSetProducts((fByRange && fByRange) || []);
         }
