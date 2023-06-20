@@ -11,7 +11,7 @@ export default function Component(){
     const {products} = useContext(ProductsContext);
     const {providers} = useContext(ProvidersContext);
     return (
-       <Box sx={{display: "flex", flexDirection: "row"}}>
+       <Box sx={{display: "flex", flexDirection: "row", flexWrap: 'wrap'}}>
             {(((products && products.length > 0) || (providers && providers.length > 0)) 
             && <><Stack sx={{margin: '5px', padding: '5px'}}>
             <FormControlLabel 
