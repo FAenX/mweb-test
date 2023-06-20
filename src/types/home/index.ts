@@ -28,7 +28,7 @@ interface Provider {
     /**
      * @param {string} coverageStatusDisplayValue
      * @param {string} coverageStatusOptionKey
-     * @param {Array<string>} products
+     * @param {Array<Product>} products
      * @param {string} promoCode
      * @param {string} promoCodeCategory
      * @param {string} promoCodeDescription
@@ -42,7 +42,7 @@ interface Provider {
      * */
     coverageStatusDisplayValue: string
     coverageStatusOptionKey: string
-    products: Array<string>
+    products: Array<Product>
     promoCode: string
     promoCodeCategory: string
     promoCodeDescription: string
@@ -68,14 +68,17 @@ interface PriceRange {
 
 interface Product {
     /**
-     * @param {string} name
-     * @param {string} description
-     * @param {string} urlSlug
+     * @param {string} category
+     * @param {string} chargePeriod
+     * @param {string} displayPrice
+     * @param {string} productName
      * 
      * */
-    name: string
-    description: string
-    urlSlug: string
+    category: string
+    chargePeriod: string
+    displayPrice: string
+    productName: string
+    
 
 }
 

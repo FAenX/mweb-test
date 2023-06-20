@@ -11,7 +11,6 @@ export async function getCampaigns(): Promise<any> {
 
 export async function getProviders(codes: Array<string>): Promise<any> {
   const joinedCodes = codes.join(",");
-  console.log(joinedCodes);
   return await get(PROMOCODES(joinedCodes));
   
 }

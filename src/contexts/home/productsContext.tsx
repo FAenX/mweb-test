@@ -1,70 +1,61 @@
-// import React, {} from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import React, {} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-// import { RootState } from '../../redux'
-// import { Campaign } from '../../types/home';
-// import { getCampaigns } from '../../adapters';
-// import { setCampaigns } from '../../redux/campaigns';
+import { RootState } from '../../redux'
+import { Product } from '../../types/home';
+import { setProducts } from '../../redux/products';
+
 
 
 
 
 
   
-// type ProviderProps = {
-//     children: React.ReactNode;
-// };
+type ProductProps = {
+    children: React.ReactNode;
+};
 
-// type Campaigns = {
-//     campaigns: Campaign[] | [];
-//     setCampaigns: (campaigns: Campaign[]) => void;
-// };
+type Products = {
+    products: Product[] | [];
+    setProducts: (products: Product[]) => void;
+};
 
 
-// export const CampaignsContext = React.createContext<Campaigns>({
-//     campaigns: [],
-//     setCampaigns: () => {}
-// });
+export const ProductsContext = React.createContext<Products>({
+    products: [],
+    setProducts: () => {}
+});
 
-// export const CampaignsProvider: React.FC<ProviderProps> = ({children}) => {
+export const ProductsProvider: React.FC<ProductProps> = ({children}) => {
 
-//     const dispatch = useDispatch();
-//     const handleSetCampaigns =(campaigns: Campaign[])=> {
-//         dispatch(setCampaigns(campaigns));
-//     }
+    const dispatch = useDispatch();
+    const handleSetProducts =(products: Product[])=> {
+        dispatch(setProducts(products));
+    }
     
 
-//     const campaigns = useSelector((state: RootState) => state.campaigns.campaigns);
-
-//     React.useEffect(() => {
-        
-//             (async()=> {
-//                 const data = await getCampaigns();
-//                 console.log(data.data.campaigns)
-//                 if (data.error) {
-//                     // setNotification({message: data.message, severity: 'error'})
-//                     return
-//                 }
-//                 handleSetCampaigns(data.data.campaigns);
-              
-//             }
-//             )();
-
-        
-      
-//     }, []);
+    const providers = useSelector((state: RootState) => state.providers.providers);
+    const selectedProvider = useSelector((state: RootState)=> state.providers.selectedProvider)
+    const products = useSelector((state: RootState)=> state.products.products)
 
 
-//     return (
-//         <CampaignsContext.Provider 
-//             value={{
-//                 campaigns: campaigns, 
-//                 setCampaigns:  handleSetCampaigns
-//             }}>
-//             {children}
-//         </CampaignsContext.Provider>
-//     )
-// }
+    React.useEffect(() => {
+        const products = providers && providers.length> 0 && providers.filter(provider=>provider.provider === selectedProvider)[0].products
+        console.log(selectedProvider)
+        console.log(products)
+        handleSetProducts(products && products || []);
+    }, [selectedProvider]);
 
 
-export {}
+    return (
+        <ProductsContext.Provider 
+            value={{
+                products: products, 
+                setProducts:  handleSetProducts
+            }}>
+            {children}
+        </ProductsContext.Provider>
+    )
+}
+
+

@@ -50,11 +50,13 @@ export const ProvidersProvider: React.FC<ProviderProps> = ({children}) => {
 
     React.useEffect(() => {
         (async()=> {
-            const promocodes = campaigns
+            const promocodes = campaigns && campaigns.length > 0 && campaigns
                 .filter(campaign=>campaign.code==selectedCampaign)[0]
                 .promocodes
             
-            const data = await getProviders(promocodes);
+            
+            
+            const data = promocodes && promocodes.length > 0 && await getProviders(promocodes);
            
             if (data.error) {
                 // setNotification({message: data.message, severity: 'error'})

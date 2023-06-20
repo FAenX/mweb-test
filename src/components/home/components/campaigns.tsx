@@ -21,6 +21,7 @@ export default function Campaigns() {
                                 id={campaign.code}
                                 checked={selectedCampaign === campaign.code}
                                 onChange={(e) =>{selectCampaign(e.target.id)}}
+                                sx={{color: 'primary.main'}}
                             />} 
                             label={
                             <Typography variant={'h6'}>
