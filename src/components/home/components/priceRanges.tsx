@@ -1,15 +1,19 @@
 import { Box, Checkbox, FormControlLabel, Stack, Typography } from "@mui/material";
-import { PriceRangeContext } from "../../../contexts/home";
+import { PriceRangeContext, ProductsContext, ProvidersContext } from "../../../contexts/home";
 import { useContext } from "react";
+import { RowPlaceHolder } from "./common/placeHolders";
 
 
 
 
 export default function Component(){
     const {priceRange, setPriceRange} = useContext(PriceRangeContext);
+    const {products} = useContext(ProductsContext);
+    const {providers} = useContext(ProvidersContext);
     return (
-        <Box sx={{display: "flex", flexDirection: "row"}}>
-            <Stack sx={{margin: '5px', padding: '5px'}}>
+       <Box sx={{display: "flex", flexDirection: "row"}}>
+            {(((products && products.length > 0) || (providers && providers.length > 0)) 
+            && <><Stack sx={{margin: '5px', padding: '5px'}}>
             <FormControlLabel 
                 id='R0 - R699'
                 control={<Checkbox  
@@ -50,7 +54,7 @@ export default function Component(){
                 <Typography variant={'h6'}>R1000+</Typography>
                 }
             />
-            </Stack >
+            </Stack > </>) || <RowPlaceHolder />}
         </Box>
     );
 }

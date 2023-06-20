@@ -19,6 +19,7 @@ export default function Component() {
     const unq = providers && providers.length > 0 && Array.from(new Set(providers.map(provider=>provider.provider)))
     return (
         <Box sx={{ minWidth: 275 }} margin={'10px'}>
+            
             {(providers && providers.length > 0 && <Box sx={{display: 'flex', justifyContent: '', flexWrap: 'wrap'}}>
                 {unq && unq.length > 0 && unq.map((provider, index) => {
                     return (
@@ -35,8 +36,8 @@ export default function Component() {
                                 <Stack direction={'row'} justifyContent={'center'} spacing={1} alignContent={'center'} alignItems={'center'} >
                                     <Avatar 
                                         src={getLogoUrl(provider)} 
-                                        sx={{width: '20px', height: '20px', bgcolor: 'white'}}
-                                        alt={provider}
+                                        sx={{width: '24px', height: '24px', bgcolor: 'white', padding: "2px"}}
+                                        alt="P"
                                         variant={'square'}
                                     />
 
@@ -48,7 +49,8 @@ export default function Component() {
                         />
                     )
                 })}
-            </Box>) || <RowPlaceHolder/>} 
+            </Box>
+            ) || <RowPlaceHolder/>} 
         </Box>
     );
 }
